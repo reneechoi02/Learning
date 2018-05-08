@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">	
+		<p>{{ message }}</p>
+	</div>
+	<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message: "this is an message."
+		},
+		//组件实例刚被创建，组件属性计算之前
+		beforeCreate:function(){
+			console.log("%cbeforeCreate","color:red");
+			console.log("el: "+this.$el);//undefined
+			console.log("data: "+this.$data);//undefined
+			console.log("message: "+this.message);
+		},
+		//组件实例创建完成，属性已绑定，但DOM还未生成
+		created:function(){
+			console.log("%ccreated","color:red");
+			console.log("el: "+this.$el);//undefined
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//模板编译/挂载之前
+		beforeMount:function(){
+			console.log("%cbeforeMount","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//模板编译/挂载之后（不保证组件已在document中）
+		mounted:function(){
+			console.log("%cmounted","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//组件更新之前
+		beforeUpdate:function(){
+			console.log("%cbeforeUpdate","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//组件更新之后
+		updated:function(){
+			console.log("%cupdated","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//组件销毁之前
+		beforeDestroy:function(){
+			console.log("%cbeforeDestory","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		},
+		//组件销毁之后
+		destroyed:function(){
+			console.log("%cdestroyed","color:red");
+			console.log("el: "+this.$el);
+			console.log("data: "+this.$data);
+			console.log("message: "+this.message);
+		}
+	})
+</script>
+</body>
+</html>
